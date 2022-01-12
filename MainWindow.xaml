@@ -48,7 +48,7 @@
         <Button Content="√" Margin="2" Background="#FFE8AC5F" BorderBrush="Black" Foreground="#FF5A410C" FontSize="48" Grid.Column="1" Grid.Row="1" FontFamily="Curlz MT" FontWeight="Bold"  />
         <Button Content="x²" Margin="2" Grid.Row="1" Grid.Column="2" Background="#FFE8AC5F" BorderBrush="Black" Foreground="#FF5A410C" FontSize="48" FontFamily="Curlz MT" FontWeight="Bold" Click="Button_Click_1"  />
         <Button Content="1/X" Margin="2" Grid.Row="1" Grid.Column="3" Background="#FFE8AC5F" BorderBrush="Black" Foreground="#FF5A410C" FontSize="36" FontFamily="Curlz MT" FontWeight="Bold"  />
-        <TextBlock Margin="0,0,0,2.8" TextWrapping="Wrap" Grid.ColumnSpan="4" Width="Auto" Foreground="#FF5A410C" Background="Black"/>
+        <TextBlock Margin="0,0,0,2.8" TextWrapping="Wrap" Grid.ColumnSpan="4" Width="Auto" Foreground="#FF5A410C"/>
 
     </Grid>
 </Window>
