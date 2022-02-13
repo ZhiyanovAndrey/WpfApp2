@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="Calculator" Height="650" Width="400" Background="#FFB19921">
     
-    <Grid Margin="5">
+    <Grid x:Name="numButtons" Margin="5">
         <Grid.RowDefinitions>
             <RowDefinition Height="100*"/>
             <RowDefinition Height="60*"/>
@@ -25,8 +25,8 @@
 
         </Grid.ColumnDefinitions>
         <Button Content="±" Margin="2,2,2,2.4" Grid.Row="6" Grid.Column="0" Background="#FFE8AC5F" BorderBrush="Black" FontWeight="Bold" Foreground="#FF5A410C" FontSize="48" FontFamily="Curlz MT"  />
-        <Button Content="0" Margin="2,2,2,2.4" Grid.Row="6" Grid.Column="1" Background="#FFE8CC43" BorderBrush="Black" FontWeight="Bold" Foreground="#FF5A410C" FontSize="48" Click="Button_Click"  />
-        <Button Content="," Margin="2,2,2,2.4" Grid.Row="6" Grid.Column="2" Background="#FFE8AC5F" BorderBrush="Black" FontWeight="Bold" Foreground="#FF5A410C" FontSize="48" FontFamily="Curlz MT"  />
+        <Button Content="0" Margin="2,2,2,2.4" Grid.Row="6" Grid.Column="1" Background="#FFE8CC43" BorderBrush="Black" FontWeight="Bold" Foreground="#FF5A410C" FontSize="48"  />
+        <Button Content="." Margin="2,2,2,2.4" Grid.Row="6" Grid.Column="2" Background="#FFE8AC5F" BorderBrush="Black" FontWeight="Bold" Foreground="#FF5A410C" FontSize="48" FontFamily="Curlz MT"  />
         <Button Content="=" Margin="2,2,2,2.4" Grid.Row="6" Grid.Column="3" Background="#FFE8AC5F" BorderBrush="Black" Foreground="#FF5A410C" FontSize="48" FontFamily="Curlz MT" FontWeight="Bold"  />
         <Button Content="1" Margin="2,2.2,2,2" Grid.Row="5" Grid.Column="0" Background="#FFE8CC43" BorderBrush="Black" FontWeight="Bold" Foreground="#FF5A410C" FontSize="48"  />
         <Button Content="2" Margin="2,2.2,2,2" Grid.Row="5" Grid.Column="1" Background="#FFE8CC43" BorderBrush="Black" FontWeight="Bold" Foreground="#FF5A410C" FontSize="48"  />
@@ -39,16 +39,17 @@
         <Button Content="7" Margin="2,1.8,2,2.4" Grid.Row="3" Grid.Column="0" Background="#FFEACD43" BorderBrush="Black" FontWeight="Bold" Foreground="#FF5A410C" FontSize="48"  />
         <Button Content="8" Margin="2,1.8,2,2.4" Grid.Row="3" Grid.Column="1" Background="#FFE8CC43" BorderBrush="Black" FontWeight="Bold" Foreground="#FF5A410C" FontSize="48"  />
         <Button Content="9" Margin="2,1.8,2,2.4" Grid.Row="3" Grid.Column="2" Background="#FFE8CC43" BorderBrush="Black" FontWeight="Bold" Foreground="#FF5A410C" FontSize="48"  />
-        <Button Content="×" Margin="2,1.8,2,2.4" Grid.Row="3" Grid.Column="3" Background="#FFE8AC5F" BorderBrush="Black" FontWeight="Bold" Foreground="#FF5A410C" FontSize="48" FontFamily="Curlz MT"  />
+        <Button Content="х" Margin="2,1.8,2,2.4" Grid.Row="3" Grid.Column="3" Background="#FFE8AC5F" BorderBrush="Black" FontWeight="Bold" Foreground="#FF5A410C" FontSize="48" FontFamily="Curlz MT"  />
         <Button Content="CE" Margin="2,2.2" Grid.Row="2" Grid.Column="0" Background="#FFE8AC5F" BorderBrush="Black" Foreground="#FF5A410C" FontSize="48" FontFamily="Curlz MT" FontWeight="Bold"  />
         <Button Content="C" Margin="2,2.2" Grid.Row="2" Grid.Column="1" Background="#FFE8AC5F" BorderBrush="Black" Foreground="#FF5A410C" FontSize="48" FontFamily="Curlz MT" FontWeight="Bold"  />
-        <Button Content="🠴" Margin="2,2.2" Grid.Row="2" Grid.Column="2" Background="#FFE8AC5F" BorderBrush="Black" Foreground="#FF5A410C" FontSize="48" FontFamily="Curlz MT" FontWeight="Bold" RenderTransformOrigin="0.5,0.503"  />
+        <Button Content="🠴" x:Name="ButtonBackSpace" Margin="2,2.2" Grid.Row="2" Grid.Column="2" Background="#FFE8AC5F" BorderBrush="Black" Foreground="#FF5A410C" FontSize="48" FontFamily="Curlz MT" FontWeight="Bold" />
         <Button Content="÷" Margin="2,2.2" Grid.Row="2" Grid.Column="3" Background="#FFE8AC5F" BorderBrush="Black" Foreground="#FF5A410C" FontSize="48" FontFamily="Curlz MT" FontWeight="Bold"  />
         <Button Content="%" Margin="2" Grid.Row="1" Grid.Column="0" Background="#FFE8AC5F" BorderBrush="Black" Foreground="#FF5A410C" FontSize="48" FontFamily="Curlz MT" FontWeight="Bold"  />
         <Button Content="√" Margin="2" Background="#FFE8AC5F" BorderBrush="Black" Foreground="#FF5A410C" FontSize="48" Grid.Column="1" Grid.Row="1" FontFamily="Curlz MT" FontWeight="Bold"  />
-        <Button Content="x²" Margin="2" Grid.Row="1" Grid.Column="2" Background="#FFE8AC5F" BorderBrush="Black" Foreground="#FF5A410C" FontSize="48" FontFamily="Curlz MT" FontWeight="Bold" Click="Button_Click_1"  />
+        <Button Content="x²" Margin="2" Grid.Row="1" Grid.Column="2" Background="#FFE8AC5F" BorderBrush="Black" Foreground="#FF5A410C" FontSize="48" FontFamily="Curlz MT" FontWeight="Bold"  />
         <Button Content="1/X" Margin="2" Grid.Row="1" Grid.Column="3" Background="#FFE8AC5F" BorderBrush="Black" Foreground="#FF5A410C" FontSize="36" FontFamily="Curlz MT" FontWeight="Bold"  />
-        <TextBlock Margin="0,0,0,2.8" TextWrapping="Wrap" Grid.ColumnSpan="4" Width="Auto" Foreground="#FF5A410C"/>
+        <TextBlock x:Name="textBlock" Text=""  FontSize="34" Margin="2" TextWrapping="Wrap" Grid.ColumnSpan="4" Width="Auto" Foreground="#FF5A410C"/>
+        
 
     </Grid>
 </Window>
