@@ -6,13 +6,15 @@
         xmlns:local="clr-namespace:WpfApp2"
         mc:Ignorable="d"
         Title="Calculator" Height="650" Width="417" Background="#FFB19921">
+    <!--<Window.CommandBindings>
+        <CommandBinding Command="Exit"  Executed="" />
+    </Window.CommandBindings>-->
     <Window.Resources>
         <Style x:Key="controls">
             <Setter Property="Control.FontSize" Value="45"/>
             <Setter Property="Control.FontWeight" Value="Bold"/>
             <Setter Property="Control.Foreground" Value="#FF5A410C"/>
             <Setter Property="Control.BorderBrush" Value="#FF5A410C"/>
-
         </Style>
         <Style x:Key="numButton" BasedOn="{StaticResource controls}">
             <Setter Property="Control.Background" Value="#FFE8CC43"/>
@@ -29,11 +31,21 @@
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
-        <DockPanel Grid.Row="0">
 
+        <DockPanel Grid.Row="0" Background="#FF5A410C">
+            <Menu Background="#FF5A410C">
+                <MenuItem Header="Файл" Background="#FF5A410C">
+                    <MenuItem Header="Копировать" Command="Copy" />
+                    <MenuItem Header="Вырезать" Command="Cut" />
+                    <MenuItem Header="Вставить" Command="Paste" />
+                </MenuItem>
+            </Menu>
         </DockPanel>
+
         <DockPanel Grid.Row="1">
-            <TextBlock x:Name="textBlock" FontSize="34" Margin="2" TextWrapping="Wrap"  VerticalAlignment="Top" Foreground="#FF5A410C"/>
+            <TextBox x:Name="textBlock" FontSize="45" TextWrapping="Wrap" Margin="5" 
+                     HorizontalContentAlignment="Right" VerticalContentAlignment="Bottom" 
+                     Foreground="#FF5A410C" Background="#FFB19921"/>
         </DockPanel>
         <DockPanel Grid.Row="2" Margin="5,5,5,0">
             <Grid>
@@ -90,27 +102,6 @@
             <Button Content="C" Width="94" Height="70" Margin="2" Grid.Row="0" Grid.Column="2" Style="{StaticResource signButton}"/>
             <Button Content="/" Width="94" Height="70" Margin="2"  Grid.Row="0" Grid.Column="3" Style="{StaticResource signButton}"/>
         </Grid>
-        <!--<DockPanel>
-            <Grid>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="auto"/>
-                </Grid.RowDefinitions>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="auto"/>
-                    <ColumnDefinition Width="auto"/>
-                    <ColumnDefinition Width="auto"/>
-                    <ColumnDefinition Width="auto"/>
-
-                </Grid.ColumnDefinitions>
-         <Button Content="%" Margin="2" Grid.Row="0" Grid.Column="0" Width="120" Height="60" Background="#FFE8AC5F" BorderBrush="Black" Foreground="#FF5A410C" FontSize="48" FontFamily="Curlz MT" FontWeight="Bold"  />
-        <Button Content="√" Margin="2"  Grid.Row="0" Grid.Column="1" Background="#FFE8AC5F" BorderBrush="Black" Foreground="#FF5A410C" FontSize="48"  FontFamily="Curlz MT" FontWeight="Bold"  />
-        <Button Content="x²" Margin="2" Grid.Row="0" Grid.Column="2" Background="#FFE8AC5F" BorderBrush="Black" Foreground="#FF5A410C" FontSize="48" FontFamily="Curlz MT" FontWeight="Bold"  />
-        <Button Content="1/X" Margin="2" Grid.Row="0" Grid.Column="3" Background="#FFE8AC5F" BorderBrush="Black" Foreground="#FF5A410C" FontSize="36" FontFamily="Curlz MT" FontWeight="Bold" Click="Button_Click_1"  />
-            </Grid>
-        </DockPanel>-->
-
-
-
 
     </Grid>
 </Window>
