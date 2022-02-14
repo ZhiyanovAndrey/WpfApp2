@@ -37,7 +37,7 @@ namespace WpfApp2
         
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            try
+               try
             {
  string str = (string)((Button)e.OriginalSource).Content;
                 
@@ -48,12 +48,18 @@ namespace WpfApp2
                     string value = new DataTable().Compute(textBlock.Text, null).ToString();
                     textBlock.Text = value;
                 }
+                else if (str == "1/x")
+                {
+                    textBlock.Text = "";
+
+                }
                 else if (str == "🠴")
                 {
                     textBlock.Text = textBlock.Text.Remove(textBlock.Text.Length - 1, 1);
 
                 }
-                else if (str == "х") textBlock.Text = textBlock.Text.Replace("х","*");
+                //else if (str == "х") textBlock.Text = textBlock.Text.Replace("х","*");
+                
                 else
                     textBlock.Text += str;
             }
@@ -64,6 +70,16 @@ namespace WpfApp2
 
         }
 
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            double x = Convert.ToDouble(textBlock.Text);
+            textBlock.Text = Convert.ToString(1 / x);
+        }
 
+        private void Button_Click_2(object sender, RoutedEventArgs e)
+        {
+            double x = Convert.ToDouble(textBlock.Text);
+            textBlock.Text = Convert.ToString(x*x);
+        }
     }
 }

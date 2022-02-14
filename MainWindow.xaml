@@ -5,51 +5,112 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfApp2"
         mc:Ignorable="d"
-        Title="Calculator" Height="650" Width="400" Background="#FFB19921">
-    
-    <Grid x:Name="numButtons" Margin="5">
-        <Grid.RowDefinitions>
-            <RowDefinition Height="100*"/>
-            <RowDefinition Height="60*"/>
-            <RowDefinition Height="60*"/>
-            <RowDefinition Height="60*"/>
-            <RowDefinition Height="60*"/>
-            <RowDefinition Height="60*"/>
-            <RowDefinition Height="60*"/>
-        </Grid.RowDefinitions>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="120*"/>
-            <ColumnDefinition Width="120*"/>
-            <ColumnDefinition Width="120*"/>
-            <ColumnDefinition Width="120*"/>
+        Title="Calculator" Height="650" Width="417" Background="#FFB19921">
+    <Window.Resources>
+        <Style x:Key="controls">
+            <Setter Property="Control.FontSize" Value="45"/>
+            <Setter Property="Control.FontWeight" Value="Bold"/>
+            <Setter Property="Control.Foreground" Value="#FF5A410C"/>
+            <Setter Property="Control.BorderBrush" Value="#FF5A410C"/>
 
-        </Grid.ColumnDefinitions>
-        <Button Content="±" Margin="2,2,2,2.4" Grid.Row="6" Grid.Column="0" Background="#FFE8AC5F" BorderBrush="Black" FontWeight="Bold" Foreground="#FF5A410C" FontSize="48" FontFamily="Curlz MT"  />
-        <Button Content="0" Margin="2,2,2,2.4" Grid.Row="6" Grid.Column="1" Background="#FFE8CC43" BorderBrush="Black" FontWeight="Bold" Foreground="#FF5A410C" FontSize="48"  />
-        <Button Content="." Margin="2,2,2,2.4" Grid.Row="6" Grid.Column="2" Background="#FFE8AC5F" BorderBrush="Black" FontWeight="Bold" Foreground="#FF5A410C" FontSize="48" FontFamily="Curlz MT"  />
-        <Button Content="=" Margin="2,2,2,2.4" Grid.Row="6" Grid.Column="3" Background="#FFE8AC5F" BorderBrush="Black" Foreground="#FF5A410C" FontSize="48" FontFamily="Curlz MT" FontWeight="Bold"  />
-        <Button Content="1" Margin="2,2.2,2,2" Grid.Row="5" Grid.Column="0" Background="#FFE8CC43" BorderBrush="Black" FontWeight="Bold" Foreground="#FF5A410C" FontSize="48"  />
-        <Button Content="2" Margin="2,2.2,2,2" Grid.Row="5" Grid.Column="1" Background="#FFE8CC43" BorderBrush="Black" FontWeight="Bold" Foreground="#FF5A410C" FontSize="48"  />
-        <Button Content="3" Margin="2,2.2,2,2" Grid.Row="5" Grid.Column="2" Background="#FFE8CC43" BorderBrush="Black" FontWeight="Bold" Foreground="#FF5A410C" FontSize="48"  />
-        <Button Content="+" Margin="2,2.2,2,2" Grid.Row="5" Grid.Column="3" Background="#FFE8AC5F" BorderBrush="Black" Foreground="#FF5A410C" FontSize="48" FontFamily="Curlz MT" FontWeight="Bold"  />
-        <Button Content="4" Margin="2,1.6,2,1.8" Grid.Row="4" Grid.Column="0" Background="#FFE8CC43" BorderBrush="Black" FontWeight="Bold" Foreground="#FF5A410C" FontSize="48"  />
-        <Button Content="5" Margin="2,1.6,2,1.8" Grid.Row="4" Grid.Column="1" Background="#FFE8CC43" BorderBrush="Black" FontWeight="Bold" Foreground="#FF5A410C" FontSize="48"  />
-        <Button Content="6" Margin="2,1.6,2,1.8" Grid.Row="4" Grid.Column="2" Background="#FFE8CC43" BorderBrush="Black" FontWeight="Bold" Foreground="#FF5A410C" FontSize="48"  />
-        <Button Content="-" Margin="2,1.6,2,1.8" Grid.Row="4" Grid.Column="3" Background="#FFE8AC5F" BorderBrush="Black" FontWeight="Bold" Foreground="#FF5A410C" FontSize="48" FontFamily="Curlz MT"  />
-        <Button Content="7" Margin="2,1.8,2,2.4" Grid.Row="3" Grid.Column="0" Background="#FFEACD43" BorderBrush="Black" FontWeight="Bold" Foreground="#FF5A410C" FontSize="48"  />
-        <Button Content="8" Margin="2,1.8,2,2.4" Grid.Row="3" Grid.Column="1" Background="#FFE8CC43" BorderBrush="Black" FontWeight="Bold" Foreground="#FF5A410C" FontSize="48"  />
-        <Button Content="9" Margin="2,1.8,2,2.4" Grid.Row="3" Grid.Column="2" Background="#FFE8CC43" BorderBrush="Black" FontWeight="Bold" Foreground="#FF5A410C" FontSize="48"  />
-        <Button Content="х" Margin="2,1.8,2,2.4" Grid.Row="3" Grid.Column="3" Background="#FFE8AC5F" BorderBrush="Black" FontWeight="Bold" Foreground="#FF5A410C" FontSize="48" FontFamily="Curlz MT"  />
-        <Button Content="CE" Margin="2,2.2" Grid.Row="2" Grid.Column="0" Background="#FFE8AC5F" BorderBrush="Black" Foreground="#FF5A410C" FontSize="48" FontFamily="Curlz MT" FontWeight="Bold"  />
-        <Button Content="C" Margin="2,2.2" Grid.Row="2" Grid.Column="1" Background="#FFE8AC5F" BorderBrush="Black" Foreground="#FF5A410C" FontSize="48" FontFamily="Curlz MT" FontWeight="Bold"  />
-        <Button Content="🠴" x:Name="ButtonBackSpace" Margin="2,2.2" Grid.Row="2" Grid.Column="2" Background="#FFE8AC5F" BorderBrush="Black" Foreground="#FF5A410C" FontSize="48" FontFamily="Curlz MT" FontWeight="Bold" />
-        <Button Content="÷" Margin="2,2.2" Grid.Row="2" Grid.Column="3" Background="#FFE8AC5F" BorderBrush="Black" Foreground="#FF5A410C" FontSize="48" FontFamily="Curlz MT" FontWeight="Bold"  />
-        <Button Content="%" Margin="2" Grid.Row="1" Grid.Column="0" Background="#FFE8AC5F" BorderBrush="Black" Foreground="#FF5A410C" FontSize="48" FontFamily="Curlz MT" FontWeight="Bold"  />
-        <Button Content="√" Margin="2" Background="#FFE8AC5F" BorderBrush="Black" Foreground="#FF5A410C" FontSize="48" Grid.Column="1" Grid.Row="1" FontFamily="Curlz MT" FontWeight="Bold"  />
-        <Button Content="x²" Margin="2" Grid.Row="1" Grid.Column="2" Background="#FFE8AC5F" BorderBrush="Black" Foreground="#FF5A410C" FontSize="48" FontFamily="Curlz MT" FontWeight="Bold"  />
-        <Button Content="1/X" Margin="2" Grid.Row="1" Grid.Column="3" Background="#FFE8AC5F" BorderBrush="Black" Foreground="#FF5A410C" FontSize="36" FontFamily="Curlz MT" FontWeight="Bold"  />
-        <TextBlock x:Name="textBlock" Text=""  FontSize="34" Margin="2" TextWrapping="Wrap" Grid.ColumnSpan="4" Width="Auto" Foreground="#FF5A410C"/>
-        
+        </Style>
+        <Style x:Key="numButton" BasedOn="{StaticResource controls}">
+            <Setter Property="Control.Background" Value="#FFE8CC43"/>
+        </Style>
+        <Style x:Key="signButton" BasedOn="{StaticResource controls}">
+            <Setter Property="Control.Background" Value="#FFE8AC5F"/>
+            <Setter Property="Control.FontFamily" Value="Curlz MT"/>
+        </Style>
+    </Window.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <DockPanel Grid.Row="0">
+
+        </DockPanel>
+        <DockPanel Grid.Row="1">
+            <TextBlock x:Name="textBlock" FontSize="34" Margin="2" TextWrapping="Wrap"  VerticalAlignment="Top" Foreground="#FF5A410C"/>
+        </DockPanel>
+        <DockPanel Grid.Row="2" Margin="5,5,5,0">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="auto"/>
+                    <ColumnDefinition Width="auto"/>
+                    <ColumnDefinition Width="auto"/>
+                    <ColumnDefinition Width="*"/>
+
+                </Grid.ColumnDefinitions>
+                <Button Content="1/X" Margin="2" Grid.Row="0" Grid.Column="0" Width="94" Height="70" Style="{StaticResource signButton}"  Click="Button_Click_1" />
+                <Button Content="√" Margin="2"  Grid.Row="0" Grid.Column="1" Width="94" Height="70" Style="{StaticResource signButton}" Click="Button_Click_2"/>
+                <Button Content="x²" Margin="2" Grid.Row="0" Grid.Column="2" Width="94" Height="70" Style="{StaticResource signButton}"/>
+                <Button Content="%" Margin="2" Grid.Row="0" Grid.Column="3" Width="94" Height="70" Style="{StaticResource signButton}" />
+            </Grid>
+        </DockPanel>
+        <Grid Grid.Row="3" x:Name="numButtons" Margin="5" VerticalAlignment="Bottom">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="*"/>
+
+            </Grid.ColumnDefinitions>
+            <Button Content="." Width="94" Height="70" Margin="2" Grid.Row="4" Grid.Column="0" Style="{StaticResource signButton}" />
+            <Button Content="0" Width="94" Height="70" Margin="2"  Grid.Row="4" Grid.Column="1" Style="{StaticResource numButton}"  />
+            <Button Content="🠴" Width="94" Height="70" Margin="2"  Grid.Row="4" Grid.Column="2" Style="{StaticResource signButton}" />
+            <Button Content="=" Width="94" Height="70" Margin="2"  Grid.Row="4" Grid.Column="3" Style="{StaticResource signButton}" />
+            <Button Content="1" Width="94" Height="70" Margin="2"  Grid.Row="3" Grid.Column="0" Style="{StaticResource numButton}" />
+            <Button Content="2" Width="94" Height="70" Margin="2"  Grid.Row="3" Grid.Column="1" Style="{StaticResource numButton}"/>
+            <Button Content="3" Width="94" Height="70" Margin="2"  Grid.Row="3" Grid.Column="2" Style="{StaticResource numButton}"/>
+            <Button Content="+" Width="94" Height="70" Margin="2"  Grid.Row="3" Grid.Column="3" Style="{StaticResource signButton}"/>
+            <Button Content="4" Width="94" Height="70" Margin="2"  Grid.Row="2" Grid.Column="0" Style="{StaticResource numButton}"  />
+            <Button Content="5" Width="94" Height="70" Margin="2"  Grid.Row="2" Grid.Column="1" Style="{StaticResource numButton}"/>
+            <Button Content="6" Width="94" Height="70" Margin="2"  Grid.Row="2" Grid.Column="2" Style="{StaticResource numButton}"/>
+            <Button Content="-" Width="94" Height="70" Margin="2"  Grid.Row="2" Grid.Column="3" Style="{StaticResource signButton}"/>
+            <Button Content="7" Width="94" Height="70" Margin="2"  Grid.Row="1" Grid.Column="0" Style="{StaticResource numButton}"/>
+            <Button Content="8" Width="94" Height="70" Margin="2"  Grid.Row="1" Grid.Column="1" Style="{StaticResource numButton}"/>
+            <Button Content="9" Width="94" Height="70" Margin="2"  Grid.Row="1" Grid.Column="2" Style="{StaticResource numButton}"/>
+            <Button Content="*" Width="94" Height="70" Margin="2"  Grid.Row="1" Grid.Column="3" Style="{StaticResource signButton}"/>
+            <Button Content="(" Width="94" Height="70" Margin="2"  Grid.Row="0" Grid.Column="0" Style="{StaticResource signButton}"/>
+            <Button Content=")" Width="94" Height="70" Margin="2"  Grid.Row="0" Grid.Column="1" Style="{StaticResource signButton}"/>
+            <Button Content="C" Width="94" Height="70" Margin="2" Grid.Row="0" Grid.Column="2" Style="{StaticResource signButton}"/>
+            <Button Content="/" Width="94" Height="70" Margin="2"  Grid.Row="0" Grid.Column="3" Style="{StaticResource signButton}"/>
+        </Grid>
+        <!--<DockPanel>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="auto"/>
+                    <ColumnDefinition Width="auto"/>
+                    <ColumnDefinition Width="auto"/>
+                    <ColumnDefinition Width="auto"/>
+
+                </Grid.ColumnDefinitions>
+         <Button Content="%" Margin="2" Grid.Row="0" Grid.Column="0" Width="120" Height="60" Background="#FFE8AC5F" BorderBrush="Black" Foreground="#FF5A410C" FontSize="48" FontFamily="Curlz MT" FontWeight="Bold"  />
+        <Button Content="√" Margin="2"  Grid.Row="0" Grid.Column="1" Background="#FFE8AC5F" BorderBrush="Black" Foreground="#FF5A410C" FontSize="48"  FontFamily="Curlz MT" FontWeight="Bold"  />
+        <Button Content="x²" Margin="2" Grid.Row="0" Grid.Column="2" Background="#FFE8AC5F" BorderBrush="Black" Foreground="#FF5A410C" FontSize="48" FontFamily="Curlz MT" FontWeight="Bold"  />
+        <Button Content="1/X" Margin="2" Grid.Row="0" Grid.Column="3" Background="#FFE8AC5F" BorderBrush="Black" Foreground="#FF5A410C" FontSize="36" FontFamily="Curlz MT" FontWeight="Bold" Click="Button_Click_1"  />
+            </Grid>
+        </DockPanel>-->
+
+
+
 
     </Grid>
 </Window>
