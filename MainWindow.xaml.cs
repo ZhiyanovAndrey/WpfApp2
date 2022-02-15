@@ -81,5 +81,12 @@ namespace WpfApp2
             double x = Convert.ToDouble(textBlock.Text);
             textBlock.Text = Convert.ToString(x*x);
         }
+
+        private void Button_PreviewMouseDown(object sender, MouseButtonEventArgs e)
+        {
+            int l = 0;
+            if (e.ChangedButton == MouseButton.Left) l++;
+            textBlock.Text = $"{l}";
+        }
     }
 }

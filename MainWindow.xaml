@@ -6,9 +6,7 @@
         xmlns:local="clr-namespace:WpfApp2"
         mc:Ignorable="d"
         Title="Calculator" Height="650" Width="417" Background="#FFB19921">
-    <!--<Window.CommandBindings>
-        <CommandBinding Command="Exit"  Executed="" />
-    </Window.CommandBindings>-->
+
     <Window.Resources>
         <Style x:Key="controls">
             <Setter Property="Control.FontSize" Value="45"/>
@@ -34,7 +32,7 @@
 
         <DockPanel Grid.Row="0" Background="#FF5A410C">
             <Menu Background="#FF5A410C">
-                <MenuItem Header="Файл" Background="#FF5A410C">
+                <MenuItem Header="Правка" Background="#FF5A410C">
                     <MenuItem Header="Копировать" Command="Copy" />
                     <MenuItem Header="Вырезать" Command="Cut" />
                     <MenuItem Header="Вставить" Command="Paste" />
@@ -45,7 +43,7 @@
         <DockPanel Grid.Row="1">
             <TextBox x:Name="textBlock" FontSize="45" TextWrapping="Wrap" Margin="5" 
                      HorizontalContentAlignment="Right" VerticalContentAlignment="Bottom" 
-                     Foreground="#FF5A410C" Background="#FFB19921"/>
+                     Foreground="#FF5A410C" Background="#FFB19921" BorderBrush="#FF5A410C"/>
         </DockPanel>
         <DockPanel Grid.Row="2" Margin="5,5,5,0">
             <Grid>
@@ -61,7 +59,7 @@
                 </Grid.ColumnDefinitions>
                 <Button Content="1/X" Margin="2" Grid.Row="0" Grid.Column="0" Width="94" Height="70" Style="{StaticResource signButton}"  Click="Button_Click_1" />
                 <Button Content="√" Margin="2"  Grid.Row="0" Grid.Column="1" Width="94" Height="70" Style="{StaticResource signButton}" Click="Button_Click_2"/>
-                <Button Content="x²" Margin="2" Grid.Row="0" Grid.Column="2" Width="94" Height="70" Style="{StaticResource signButton}"/>
+                <Button Content="x²" Margin="2" Grid.Row="0" Grid.Column="2" Width="94" Height="70" Style="{StaticResource signButton}" PreviewMouseDown="Button_PreviewMouseDown"/>
                 <Button Content="%" Margin="2" Grid.Row="0" Grid.Column="3" Width="94" Height="70" Style="{StaticResource signButton}" />
             </Grid>
         </DockPanel>
@@ -97,7 +95,7 @@
             <Button Content="8" Width="94" Height="70" Margin="2"  Grid.Row="1" Grid.Column="1" Style="{StaticResource numButton}"/>
             <Button Content="9" Width="94" Height="70" Margin="2"  Grid.Row="1" Grid.Column="2" Style="{StaticResource numButton}"/>
             <Button Content="*" Width="94" Height="70" Margin="2"  Grid.Row="1" Grid.Column="3" Style="{StaticResource signButton}"/>
-            <Button Content="(" Width="94" Height="70" Margin="2"  Grid.Row="0" Grid.Column="0" Style="{StaticResource signButton}"/>
+            <Button Content="(" Width="94" Height="70" Margin="2"  Grid.Row="0" Grid.Column="0" Style="{StaticResource signButton}"  />
             <Button Content=")" Width="94" Height="70" Margin="2"  Grid.Row="0" Grid.Column="1" Style="{StaticResource signButton}"/>
             <Button Content="C" Width="94" Height="70" Margin="2" Grid.Row="0" Grid.Column="2" Style="{StaticResource signButton}"/>
             <Button Content="/" Width="94" Height="70" Margin="2"  Grid.Row="0" Grid.Column="3" Style="{StaticResource signButton}"/>
