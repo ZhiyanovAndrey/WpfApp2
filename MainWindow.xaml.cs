@@ -21,12 +21,12 @@ namespace WpfApp2
     /// </summary>
     public partial class MainWindow : Window
     {
-       
+
         public MainWindow()
         {
             InitializeComponent();
-            
-            foreach (UIElement el in numButtons.Children) 
+
+            foreach (UIElement el in numButtons.Children)
             {
                 if (el is Button)
                 {
@@ -35,37 +35,37 @@ namespace WpfApp2
                 }
             }
         }
-        
+
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-               try
+            try
             {
- string str = (string)((Button)e.OriginalSource).Content; //запись содержимого Content из перенаправленного события
+                string str = (string)((Button)e.OriginalSource).Content; //запись содержимого Content из перенаправленного события в переменную str
 
+                if (str.Contains(","))
+                {
+                    string s = str.Replace(",", ".");
+                    textBlock.Clear();
+                    textBlock.AppendText(str.Replace(",", "."));
 
-                if (str == "C")
-                    textBlock.Text = "";
+                }
+                else if (str == "C")
+                    textBlock.Clear();
                 else if (str == "=")
                 {
                     string value = new DataTable().Compute(textBlock.Text, null).ToString();
                     textBlock.Text = value;
-                }
-                else if (str == "1/x")
-                {
-                    textBlock.Text = "";
-
                 }
                 else if (str == "🠴")
                 {
                     textBlock.Text = textBlock.Text.Remove(textBlock.Text.Length - 1, 1);
 
                 }
-                //else if (str == "х") textBlock.Text = textBlock.Text.Replace("х","*");
-                
+
                 else
                     textBlock.Text += str;
             }
-           catch (Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
@@ -78,16 +78,16 @@ namespace WpfApp2
             textBlock.Text = Convert.ToString(1 / x);
         }
 
-        private void Button_Click_x2 (object sender, RoutedEventArgs e)
+        private void Button_Click_x2(object sender, RoutedEventArgs e)
         {
             double x = Convert.ToDouble(textBlock.Text);
-            textBlock.Text = Convert.ToString(Math.Pow(x,2));
+            textBlock.Text = Math.Pow(x, 2).ToString();
         }
 
-        private void Button_Click_Sqrt (object sender, RoutedEventArgs e)
+        private void Button_Click_Sqrt(object sender, RoutedEventArgs e)
         {
             double x = Convert.ToDouble(textBlock.Text);
-            textBlock.Text = Convert.ToString(Math.Sqrt(x));
+            textBlock.Text = Math.Sqrt(x).ToString();
         }
     }
 }
