@@ -76,8 +76,10 @@ namespace WpfApp2
 
                 }
 
-                else textBlock.Text += str;
+                else textBlock.Text += str; //запись содержимого Content в строку если ни одно из услови не выполнено
             }
+
+     //вывести сообщение об исключении
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
