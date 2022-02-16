@@ -26,31 +26,45 @@ namespace WpfApp2
         {
             InitializeComponent();
 
-            foreach (UIElement el in numButtons.Children)
+            foreach (UIElement el in numButtons.Children) 
             {
                 if (el is Button)
                 {
-                    ((Button)el).Click += Button_Click; //перенаправление события Click если нажата одна из кнопок
-                                                        //в контейнере компоновки с именем numButtons
+                    ((Button)el).Click += NumButtons; //перенаправление события Click если нажата одна из кнопок
+                                                      //в контейнере компоновки с именем numButtons
                 }
             }
+            foreach (UIElement el in functionButton.Children) 
+            {
+                if (el is Button)
+                {
+                    ((Button)el).Click += FunctionButtons; //перенаправление события Click если нажата одна из кнопок
+                                                           //в контейнере компоновки с именем FunctionButtons
+                }
+            }
+
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void NumButtons(object sender, RoutedEventArgs e)
         {
             try
             {
                 string str = (string)((Button)e.OriginalSource).Content; //запись содержимого Content из перенаправленного события в переменную str
 
-                if (str.Contains(","))
+     //замена декоративных символов на стандартные символы для метода Compute()
+                if (str.Contains("×"))
                 {
-                    string s = str.Replace(",", ".");
-                    textBlock.Clear();
-                    textBlock.AppendText(str.Replace(",", "."));
-
+                    textBlock.AppendText(str.Replace("×", "*"));
                 }
+                else if (str.Contains("÷"))
+                {
+                    textBlock.AppendText(str.Replace("÷", "/"));
+                }
+
+     //реализация стандартных функции калькулятора
                 else if (str == "C")
                     textBlock.Clear();
+
                 else if (str == "=")
                 {
                     string value = new DataTable().Compute(textBlock.Text, null).ToString();
@@ -62,8 +76,48 @@ namespace WpfApp2
 
                 }
 
-                else
-                    textBlock.Text += str;
+                else textBlock.Text += str;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
+        }
+        private void FunctionButtons(object sender, RoutedEventArgs e)      //реализация инженерных функции калькулятора
+        {
+            try
+            {
+                string str = (string)((Button)e.OriginalSource).Content;
+
+                if (str == "1/x")
+                {
+                    double x = Convert.ToDouble(textBlock.Text);
+                    textBlock.Clear();
+                    textBlock.Text = Convert.ToString(1 / x);
+                }
+                else if (str == "√")
+                {
+                    double x = Convert.ToDouble(textBlock.Text);
+                    textBlock.Text = Math.Sqrt(x).ToString();
+                }
+                else if (str == "x²")
+                {
+                    double x = Convert.ToDouble(textBlock.Text);
+                    textBlock.Text = Math.Pow(x, 2).ToString();
+                }
+                else if (str == "!")
+                {
+                    int n = Convert.ToInt32(textBlock.Text);
+                    double s = 1;
+                    for (int i = 2; i <= n; i++)
+                    {
+                        s *= i;
+                    }
+                    textBlock.Text = s.ToString("n0");
+                }
+
+                else textBlock.Text += str;
             }
             catch (Exception ex)
             {
@@ -72,22 +126,5 @@ namespace WpfApp2
 
         }
 
-        private void Button_Click_1(object sender, RoutedEventArgs e)
-        {
-            double x = Convert.ToDouble(textBlock.Text);
-            textBlock.Text = Convert.ToString(1 / x);
-        }
-
-        private void Button_Click_x2(object sender, RoutedEventArgs e)
-        {
-            double x = Convert.ToDouble(textBlock.Text);
-            textBlock.Text = Math.Pow(x, 2).ToString();
-        }
-
-        private void Button_Click_Sqrt(object sender, RoutedEventArgs e)
-        {
-            double x = Convert.ToDouble(textBlock.Text);
-            textBlock.Text = Math.Sqrt(x).ToString();
-        }
     }
 }
