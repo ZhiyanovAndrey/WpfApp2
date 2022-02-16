@@ -26,11 +26,12 @@ namespace WpfApp2
         {
             InitializeComponent();
             
-            foreach (UIElement el in numButtons.Children)
+            foreach (UIElement el in numButtons.Children) 
             {
                 if (el is Button)
                 {
-                    ((Button)el).Click += Button_Click;
+                    ((Button)el).Click += Button_Click; //перенаправление события Click если нажата одна из кнопок
+                                                        //в контейнере компоновки с именем numButtons
                 }
             }
         }
@@ -39,8 +40,9 @@ namespace WpfApp2
         {
                try
             {
- string str = (string)((Button)e.OriginalSource).Content;
-                
+ string str = (string)((Button)e.OriginalSource).Content; //запись содержимого Content из перенаправленного события
+
+
                 if (str == "C")
                     textBlock.Text = "";
                 else if (str == "=")
@@ -76,17 +78,16 @@ namespace WpfApp2
             textBlock.Text = Convert.ToString(1 / x);
         }
 
-        private void Button_Click_2(object sender, RoutedEventArgs e)
+        private void Button_Click_x2 (object sender, RoutedEventArgs e)
         {
             double x = Convert.ToDouble(textBlock.Text);
-            textBlock.Text = Convert.ToString(x*x);
+            textBlock.Text = Convert.ToString(Math.Pow(x,2));
         }
 
-        private void Button_PreviewMouseDown(object sender, MouseButtonEventArgs e)
+        private void Button_Click_Sqrt (object sender, RoutedEventArgs e)
         {
-            int l = 0;
-            if (e.ChangedButton == MouseButton.Left) l++;
-            textBlock.Text = $"{l}";
+            double x = Convert.ToDouble(textBlock.Text);
+            textBlock.Text = Convert.ToString(Math.Sqrt(x));
         }
     }
 }
